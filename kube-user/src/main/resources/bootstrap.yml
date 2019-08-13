@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: kube-user
+  cloud:
+    kubernetes:
+      discovery: 
+        enabled: false
+      #config:
+      #  paths:
+      #  - /etc/config
+      #  name: dummy1
+      #  sources:
+      #  - name: kube-user.dev
+      #    namespace: default
+      reload:
+        enabled: true
+        monitoring-config-maps: true
+        strategy: refresh 
+        mode: event
+  profiles:
+    active: dev, test
